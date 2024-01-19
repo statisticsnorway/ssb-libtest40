@@ -4,6 +4,7 @@ The template and this example uses Google style docstrings as described at:
 https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html
 
 """
+from math import sqrt
 
 
 def example_function(number1: int, number2: int) -> str:
@@ -33,3 +34,20 @@ def example_function(number1: int, number2: int) -> str:
         return f"{number1} is less than {number2}"
 
     return f"{number1} is greater than or equal to {number2}"
+
+
+def is_prime(number: int) -> bool:
+    """Check if the given number is a prime number.
+
+    Args:
+        number: The number to check.
+
+    Returns:
+        True if the number is a prime number. False otherwise.
+    """
+    if number <= 1:
+        return False
+    for i in range(2, int(sqrt(number)) + 1):
+        if number % i == 0:
+            return False
+    return True
